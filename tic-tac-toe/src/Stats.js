@@ -1,3 +1,5 @@
+import React from 'react';
+
 const Stats = props => {
 	const { squares, xIsNext } = props,
 		winner = calculateWinner(squares),
@@ -17,4 +19,6 @@ const Stats = props => {
   		</div>
 	); 
 }
+
+export default Stats;
 
