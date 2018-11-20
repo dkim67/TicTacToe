@@ -1,7 +1,8 @@
 import React from 'react';
 import Board from './Board';
-import Stats from './Stats'
-import Turn from './Turn'
+import Stats from './Stats';
+import Turn from './Turn';
+
 
 class Game extends React.Component {
 	
@@ -19,7 +20,10 @@ class Game extends React.Component {
 		this.updateTurn = this.updateTurn.bind(this);
 	}
 
-	
+	// Click event to update apps history
+	// Make sure to prevent double selection and to check if game is won
+	// Saves each move into history
+	// Swaps turn
 	handleClick(i){
 		const history = this.state.history.slice(0, this.state.stepNum + 1);
 		const current = history[history.length - 1];
@@ -35,7 +39,7 @@ class Game extends React.Component {
 		});
 	}
   	
-  	
+  // Changes to next step from current and updates players turn	
 	updateTurn(step) {
 	    this.setState({
 	      stepNum: step,
@@ -43,7 +47,7 @@ class Game extends React.Component {
 	    });
 	}
 	
-	
+	// Render React Game
 	render() {
 		const history = this.state.history;
 		const current = history[this.state.stepNum];
