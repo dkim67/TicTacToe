@@ -19,11 +19,7 @@ class Game extends React.Component {
 		this.updateTurn = this.updateTurn.bind(this);
 	}
 
-	//...
-	//- Updates app's history (based on the current step)
-	//- Make sure no selection happens on the same square or if the game has been won already
-	//- Records each move and save it in the history
-	//- Switch to the next player
+	
 	handleClick(i){
 		const history = this.state.history.slice(0, this.state.stepNum + 1);
 		const current = history[history.length - 1];
@@ -39,9 +35,7 @@ class Game extends React.Component {
 		});
 	}
   	
-  	//...
-  	//Changes the game current step and update player's turn accordingly
-  	//(will influence the game history)
+  	
 	updateTurn(step) {
 	    this.setState({
 	      stepNum: step,
@@ -49,7 +43,7 @@ class Game extends React.Component {
 	    });
 	}
 	
-	//Renders React element ...
+	
 	render() {
 		const history = this.state.history;
 		const current = history[this.state.stepNum];
