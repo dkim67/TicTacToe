@@ -1,17 +1,15 @@
 import React from "react";
 
 const Turn = props => {
-  const { history, stepNumber, ...other } = props;
+  const { history, stepNum, ...other } = props;
   const turns = history.map((step, turn) => {
-    const clickIndex = step.clickIndex;
-    const col = Math.floor(clickIndex % 3),
-      row = Math.floor(clickIndex / 3),
-      clickPosition = "(row:" + row + ", col:" + col + ")";
+    const clicks = step.clicks;
+    
     let desc = turn
-      ? "Go to turn #" + turn + " " + clickPosition
-      : "Go to game start";
+      ? "Turn #" + turn + " "
+      : "Start Game";
 
-    const btn_highlight = stepNumber === turn ? "btn-primary" : "btn-secondary";
+    const btn_highlight = stepNum === turn ? "btn-primary" : "btn-secondary";
     return (
       <li key={turn}>
         <button
